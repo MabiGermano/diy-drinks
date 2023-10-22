@@ -21,12 +21,12 @@ main#main-content {
 
 main#main-content section {
     height: 90%;
-    width: 100%;
 }
 
 main#main-content section>div.card {
     height: 80%;
     padding: 10px;
+    margin-right: 3.2%;
     display: flex;
     background-color: #ffb8c9;
     border-radius: 1.6rem;
@@ -83,39 +83,61 @@ div.recipe-data div.ingredients p {
     height: 2.4rem;
 }
 
+
+/* Estilos para telas maiores que 920px */
+/* Medida temporária, para garantir o funcionamento em festas */
+@media (min-width: 920px) {
+    main#main-content {
+        display: none;
+    }
+  }
+
 /* Estilos para telas de até 768 pixels de largura */
 @media (max-width: 920px) {
-    /* Seus estilos para telas menores ou iguais a 768 pixels de largura */
+    main#desktop-content{
+        display: none;
+    }
     main#main-content {
         height: 100%;
-        display: grid;
-        grid-template-rows: 30%;
-        align-content: space-between;
+    }
+    main#main-content section {
+        height: fit-content;
+        display: flex;
+        overflow: scroll;
+        scroll-behavior: smooth;
     }
 
-    main#main-content section>div.card {
-        height: 80%;
+    section > div.cards-container {
+        display: flex;
+        width: fit-content;
+        transition: transform 0.1s ease;
+    }
+
+    main#main-content section div.card {
+        height: fit-content;
         padding: 10px;
+        margin-right: 5%;
+        flex: 0 0;
+        scroll-snap-align: start;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
         background-color: #ffb8c9;
         border-radius: 1.6rem;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        
     }
-    main section>div.card>img {
+    main section div.card>img {
         width: 100%;
-        position: relative;
-        top: -1.6rem;
     }
-    main section>div.card div.recipe-data {
+    main section div.card div.recipe-data {
         height: 80%;
         width: 90%;
         border-radius: .32rem;
         padding: 12px;
         background-color: hsla(0, 0%, 100%, 0.482);
     }
-    main section>div.card div.recipe-data h2 {
+    main section div.card div.recipe-data h2 {
        margin: 0;
        font-size: 32px;
        text-align: center;
